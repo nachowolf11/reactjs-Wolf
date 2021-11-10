@@ -1,13 +1,22 @@
-import React from 'react'
-import ItemList from './ItemList';
+import ItemList from "./ItemList";
 
-function ItemListContainer() {
+const ItemListContainer = (props) => {
+
     return(
-        <>
-        <ItemList producto="Pizza" precio="1000"/>
-        <ItemList producto="Empanada" precio="200"/>
-        </>
-    )
+        <div className="container g-0">
+            <div className="row justify-content-center g-0">
+                {
+                props.items.map((item,index) =>
+                    <ItemList
+                    key={index}
+                    producto={item.producto}
+                    precio={item.precio}
+                    stock={item.stock}
+                    />)
+                }
+            </div>
+        </div>
+    );
 }
 
 export default ItemListContainer;
