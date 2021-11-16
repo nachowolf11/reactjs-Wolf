@@ -1,22 +1,23 @@
-import ItemList from "./ItemList";
+import React from 'react'
+import { data } from '../data'
+import itemsPromise from '../utyls/itemsPromise'
+import {useState, useEffect} from "react"
+import ItemList from './ItemList'
 
-const ItemListContainer = (props) => {
+function ItemListContainer() {
+    const [datos, setDatos] = useState([])
 
-    return(
-        <div className="container g-0">
-            <div className="row justify-content-center g-0">
-                {
-                props.items.map((item,index) =>
-                    <ItemList
-                    key={index}
-                    producto={item.producto}
-                    precio={item.precio}
-                    stock={item.stock}
-                    />)
-                }
-            </div>
+    useEffect(() => {
+        itemsPromise(2000,data)
+        .then(result => setDatos(result))
+        .catch(err => console.log(err))
+    }, [])
+
+    return (
+        <div>
+            <ItemList items={datos}/>            
         </div>
-    );
+    )
 }
 
-export default ItemListContainer;
+export default ItemListContainer
