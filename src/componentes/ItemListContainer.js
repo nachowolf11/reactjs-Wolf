@@ -1,6 +1,6 @@
 import React from 'react'
 import { data } from '../data'
-import itemsPromise from '../utyls/itemsPromise'
+import itemsPromise from '../utils/itemsPromise'
 import {useState, useEffect} from "react"
 import ItemList from './ItemList'
 

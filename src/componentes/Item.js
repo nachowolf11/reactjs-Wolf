@@ -4,7 +4,7 @@ const Item = (props) => {
     return(
     <>
     <div className="card m-2" style={{width: 320}}>
-        <img src="#" class="card-img-top"/>
+        <img src={props.imagen} class="card-img-top"/>
         <div className="card-body">
             <h5 className="card-title">{props.producto}</h5>
             <p className="card-text">Precio: ${props.precio}</p>
