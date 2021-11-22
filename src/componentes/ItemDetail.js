@@ -1,11 +1,12 @@
 import React from 'react'
+import ItemCount from "./ItemCount";
 
 function ItemDetail({item}) {
     return (
         <div>
-            <img src={item.imagen}/>
             <h2>{item.producto}</h2>
             <p>{item.precio}</p>
+            <ItemCount stock={item.stock}/>
         </div>
     )
 }
