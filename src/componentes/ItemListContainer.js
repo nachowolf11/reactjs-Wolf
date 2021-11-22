@@ -1,21 +1,31 @@
 import React from 'react'
-import { data } from '../data'
-import itemsPromise from '../utils/itemsPromise'
-import {useState, useEffect} from "react"
+import { useState, useEffect } from 'react/cjs/react.development'
 import ItemList from './ItemList'
 
 function ItemListContainer() {
-    const [datos, setDatos] = useState([])
+    let listado = []
+    const [pokemon, setPokemon] = useState([])
 
-    useEffect(() => {
-        itemsPromise(2000,data)
-        .then(result => setDatos(result))
+    /*useEffect(() => {
+         fetch("https://pokeapi.co/api/v2/pokemon")
+        .then(response => response.json())
+        .then(response => setPokemon(response.results))
         .catch(err => console.log(err))
     }, [])
-
+*/
+    useEffect(()=>{
+        for (let index = 1; index < 5; index++) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
+            .then(response => response.json())
+            .then(response => listado.push(response))
+            .catch(err => console.log(err))
+        }
+    },[pokemon])
+    console.log(listado)
+    setPokemon(listado)
     return (
         <div>
-            <ItemList items={datos}/>            
+            <ItemList pokemones={pokemon}/>            
         </div>
     )
 }

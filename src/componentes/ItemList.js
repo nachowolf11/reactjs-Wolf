@@ -5,12 +5,13 @@ const ItemList = (props) => {
         <div className="container g-0">
             <div className="row justify-content-center g-0">
                 {
-                props.items.map((item,index) =>
+                props.pokemones.map((pokemon,index) =>
                     <Item
                     key={index}
-                    producto={item.producto}
-                    precio={item.precio}
-                    stock={item.stock}
+                    img={pokemon.sprites.front_default}
+                    nombre={pokemon.name}
+                    id={index+1}
+                    stock={10}
                     />)
                 }
             </div>
