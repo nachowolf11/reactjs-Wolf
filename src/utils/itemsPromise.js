@@ -1,9 +1,7 @@
-const itemsPromise = (timeout,data) => {
+const itemsPromise = (listado) => {
     return new Promise ((resolve,reject) => {
         if (true) {
-            setTimeout(() => {
-                resolve(data)
-            }, timeout);
+                resolve(listado)
         } else {
             reject();
         }
