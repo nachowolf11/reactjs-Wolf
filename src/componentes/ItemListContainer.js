@@ -4,7 +4,7 @@ import ItemList from './ItemList'
 
 function ItemListContainer() {
     let listado = []
-    const [pokemon, setPokemon] = useState([])
+    const [pokemones, setPokemones] = useState([])
 
     /*useEffect(() => {
          fetch("https://pokeapi.co/api/v2/pokemon")
@@ -18,14 +18,19 @@ function ItemListContainer() {
             fetch(`https://pokeapi.co/api/v2/pokemon/${index}`)
             .then(response => response.json())
             .then(response => listado.push(response))
+            .then (()=> console.log(listado.length))
             .catch(err => console.log(err))
         }
-    },[pokemon])
-    console.log(listado)
-    setPokemon(listado)
+        setTimeout(() => {
+            setPokemones(listado)
+        }, 10000);
+    },[])
+
+
+
     return (
         <div>
-            <ItemList pokemones={pokemon}/>            
+            <ItemList pokemones={pokemones}/>           
         </div>
     )
 }
