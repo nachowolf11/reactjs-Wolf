@@ -19,7 +19,7 @@ function NavBar() {
                 <Link className="nav-link" to='/calzado'>Calzado</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link"><CartWidget/></a>
+                <Link to="/cart" className="nav-link"><CartWidget/></Link>
               </li>
             </ul>
           </div>

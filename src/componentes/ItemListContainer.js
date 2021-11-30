@@ -9,11 +9,8 @@ function ItemListContainer() {
     const [datos, setDatos] = useState([])
     const { idCategoria } = useParams();
 
-    console.log(idCategoria)
- 
-
     useEffect(() => {
-        itemsPromise(2000,data.filter(item =>{
+        itemsPromise(1000,data.filter(item =>{
             if(idCategoria === undefined) return item
             return item.categoria === idCategoria
         }))
