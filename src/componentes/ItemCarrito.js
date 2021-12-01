@@ -1,10 +1,10 @@
-const ItemCarrito = (props) => {
+const ItemCarrito = ({imagen,producto,cantidad,precio}) => {
     return (
-        <div>
-            <img src={props.imagen}/>
-            <h2>{props.producto}</h2>
-            <span>{props.cantidad}</span>
-            <span>{props.precio}</span>
+        <div className="border border-secondary p-3">
+            <h2>{producto}</h2>
+            <div>CANTIDAD: {cantidad}</div>
+            <div>PRECIO: {precio}</div>
+            <div>SUBTOTAL: {precio*cantidad}</div>
         </div>
     );
 }

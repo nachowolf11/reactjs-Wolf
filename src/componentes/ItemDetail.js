@@ -22,7 +22,11 @@ function ItemDetail({item}) {
             {
                 compraCant === 0
                 ? <ItemCount stock={item.stock} onAdd={onAdd}/>
-                : <Link to="/cart"><button className="btn btn-info">Ir al carrito</button></Link>
+                :
+                <div>
+                <Link to="/cart"><button className="btn btn-info mx-1">Ir al carrito</button></Link>
+                <Link to="/"><button type="button" className="btn btn-success mx-1">Seguir comprando</button></Link>
+                </div>
             }
             
         </div>

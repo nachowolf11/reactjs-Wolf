@@ -22,7 +22,7 @@ const CartContextProvider = ({children}) => {
         }
     }
 
-    const limpiarCart = () => {
+    const vaciarCarrito = () => {
         setCartList([])
     }
 
@@ -31,8 +31,22 @@ const CartContextProvider = ({children}) => {
         setCartList(resultado)
     }
 
+    const sumarTotal = (total) => {
+        for (const item of cartList) {
+            total = total + (item.precioItem * item.cantItem)
+        }
+        return total
+    }
+
+    const cantItem = (total) => {
+        for (const item of cartList) {
+            total = total + item.cantItem
+        }
+        return total
+    }
+
     return (
-        <CartContext.Provider value={{cartList,addToCart,limpiarCart,borrarItem}}>
+        <CartContext.Provider value={{cartList,addToCart,vaciarCarrito,borrarItem,sumarTotal,cantItem}}>
             {children}
         </CartContext.Provider>
     )
