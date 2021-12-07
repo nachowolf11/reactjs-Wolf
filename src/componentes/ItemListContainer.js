@@ -1,11 +1,11 @@
 import React from 'react'
 import {useState, useEffect} from "react"
-import {useParams} from "react-router"
+import { useParams } from "react-router";
 import ItemList from './ItemList'
 import db from '../utils/fireBase'
 import { collection, getDocs } from "firebase/firestore";
 
-const firestoreFetch = async = () =>{
+const firestoreFetch = async () =>{
     let query;
     if (idCategoria) {
         query = query(collection(db, "products"), where('categoryId', '==', idCategoria));
